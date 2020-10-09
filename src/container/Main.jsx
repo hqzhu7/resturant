@@ -16,6 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import Food from '../component/Food';
+import foodList from '../data/data';
 
 const drawerWidth = 200;
 
@@ -70,10 +71,10 @@ function Main(props) {
         <div>
         <div className={classes.toolbar} />
         <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text} onClick = {() => handleClick(text)}>
+            {foodList.map((foodinList, index) => (
+            <ListItem button key={foodinList.id} onClick = {() => handleClick(foodinList.name)}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <Mail />}</ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={foodinList.name} />
             </ListItem>
             ))}
         </List>

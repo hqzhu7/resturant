@@ -2,9 +2,9 @@ import React from 'react';
 
 function Food(props){
     return (
-        <h5> 
+        <h1> 
             {props.selectedFood}
-        </h5>
+        </h1>
     )
 }
 
