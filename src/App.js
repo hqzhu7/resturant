@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import NavTabs from './container/NavTabs';
+import Main from './container/Main';
+import Food from './component/Food';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <NavTabs/>
+      <Main />  
     </div>
   );
 }
