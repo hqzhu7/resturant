@@ -12,10 +12,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Mail from '@material-ui/icons/Mail';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import { makeStyles, useTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import Food from '../component/Food';
 import foodList from '../data/data';
+import Footer from './Footer';
 
 const drawerWidth = 200;
 
@@ -34,12 +34,15 @@ const useStyles = makeStyles((theme) => ({
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
+    backgroundColor: 'Cornsilk',
   },
   menuButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
+    color: 'black',
+    fontWeight: 'bold',
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
@@ -49,6 +52,12 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+  },
+  typography: {
+    position: 'absolute',
+    right: '1rem',
+    color: 'black',
+    fontWeight: 'bold',
   },
 }));
 
@@ -89,18 +98,20 @@ function Main(props) {
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
-                <Grid container justify="space-between">  
                     <Typography variant="h6" 
-                    inline align="left" 
-                    noWrap 
-                    onClick={handleDrawerToggle}
-                    className={classes.menuButton}>
-                        Menu
+                        noWrap 
+                        inline
+                        onClick={handleDrawerToggle}
+                        className={classes.menuButton}>
+                            Menu
                     </Typography>
-                    <Typography variant="h6" inline noWrap align="right">
-                        小苏州 - Cafe Momnent
+                    <Typography variant="h6"  
+                        noWrap 
+                        inline 
+                        onClick={handleDrawerToggle}
+                        className={classes.typography}>
+                            小苏州 - Cafe Momnent
                     </Typography>
-                </Grid>
                 </Toolbar>
             </AppBar>
             <nav className={classes.drawer} aria-label="mailbox folders">
@@ -138,6 +149,7 @@ function Main(props) {
                 <div className={classes.toolbar} />
                 <Food selectedFood={food}/>
             </main>
+            <Footer/>  
             </div>
         </ThemeProvider> 
     );
