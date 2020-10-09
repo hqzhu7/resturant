@@ -66,7 +66,7 @@ function Main(props) {
     const classes = useStyles();
     const theme = responsiveFontSizes(useTheme());
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const [food, setFood] = useState('xiaolong');
+    const [food, setFood] = useState(1);
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -81,7 +81,7 @@ function Main(props) {
         <div className={classes.toolbar} />
         <List>
             {foodList.map((foodinList, index) => (
-            <ListItem button key={foodinList.id} onClick = {() => handleClick(foodinList.name, isMobile)}>
+            <ListItem button key={foodinList.id} onClick = {() => handleClick(foodinList.id, isMobile)}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <Mail />}</ListItemIcon>
                 <ListItemText primary={foodinList.name} />
             </ListItem>
@@ -108,9 +108,8 @@ function Main(props) {
                     <Typography variant="h6"  
                         noWrap 
                         inline 
-                        onClick={handleDrawerToggle}
                         className={classes.typography}>
-                            小苏州 - Cafe Momnent
+                            小苏州-Cafe Moment
                     </Typography>
                 </Toolbar>
             </AppBar>
