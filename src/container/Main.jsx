@@ -62,24 +62,24 @@ function Main(props) {
         setMobileOpen(!mobileOpen);
     };
 
-    const handleClick = (selectedFood) => {
+    const handleClick = (selectedFood, isMoblie) => {
         setFood(selectedFood);
-        handleDrawerToggle();
+        if(isMoblie) handleDrawerToggle();
     }
 
-    const drawer = (
+    const drawer = (isMobile) => {return (
         <div>
         <div className={classes.toolbar} />
         <List>
             {foodList.map((foodinList, index) => (
-            <ListItem button key={foodinList.id} onClick = {() => handleClick(foodinList.name)}>
+            <ListItem button key={foodinList.id} onClick = {() => handleClick(foodinList.name, isMobile)}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <Mail />}</ListItemIcon>
                 <ListItemText primary={foodinList.name} />
             </ListItem>
             ))}
         </List>
         </div>
-    );
+    )};
 
     const container = window !== undefined ? () => window().document.body : undefined;
 
@@ -119,7 +119,7 @@ function Main(props) {
                     keepMounted: true, // Better open performance on mobile.
                     }}
                 >
-                    {drawer}
+                    {drawer(true)}
                 </Drawer>
                 </Hidden>
                 <Hidden xsDown implementation="css">
@@ -130,7 +130,7 @@ function Main(props) {
                     variant="permanent"
                     open
                 >
-                    {drawer}
+                    {drawer(false)}
                 </Drawer>
                 </Hidden>
             </nav>
