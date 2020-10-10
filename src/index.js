@@ -2,11 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter} from "react-router-dom";
+import {Route, Switch} from "react-router";
+import DimSum from './container/DimSum';
+
 
 ReactDOM.render(
   <React.StrictMode>
-        <App />
+    <BrowserRouter >
+        <App>
+            <Switch>
+              <Route path="/" exact component={DimSum}/>
+              <Route path="/dimsum" component={DimSum}/>
+            </Switch>
+        </App>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

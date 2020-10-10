@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import Main from './container/Main';
-import Footer from './container/Footer'
+import Header from './container/Header';
+
 function App(props) {
   return (
     <div className="App">
-      <Main />  
+      <Header/>
+      {props.children}  
     </div>
   );
 }
