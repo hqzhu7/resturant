@@ -14,7 +14,7 @@ ReactDOM.render(
     <BrowserRouter >
         <App>
             <Switch>
-              <Route path="/" exact component={DimSum}/>
+              <Route path="/" exact />
               <Route path="/dimsum" component={DimSum}/>
             </Switch>
         </App>
