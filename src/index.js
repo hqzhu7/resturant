@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import {Route, Switch} from "react-router";
 import DimSum from './container/DimSum';
+import Home from './container/Home';
 
 
 ReactDOM.render(
@@ -14,7 +15,7 @@ ReactDOM.render(
     <BrowserRouter >
         <App>
             <Switch>
-              <Route path="/" exact />
+              <Route path="/home" component={Home}/>
               <Route path="/dimsum" component={DimSum}/>
             </Switch>
         </App>
